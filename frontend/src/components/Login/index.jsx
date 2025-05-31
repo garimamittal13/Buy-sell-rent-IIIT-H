@@ -96,7 +96,7 @@ const Login = () => {
 					{error && <div className={styles.error}>{error}</div>}
 					<div className={styles.recaptchaWrapper}>
 						<ReCAPTCHA
-							sitekey="6LdOfMoqAAAAABjeTwkZSrQaBMd5h2EFkX2juPvq"
+							sitekey=""
 							onChange={handleRecaptchaChange}
 							ref={recaptchaRef}
 						/>
