@@ -2,6 +2,8 @@ import { useRef, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
+import { ReactComponent as EmailIcon } from '../assets/icons/envelope.svg';
+import { ReactComponent as LockIcon } from '../assets/icons/lock.svg';
 // implement google recaptcha
 import ReCAPTCHA from "react-google-recaptcha";
 const Login = () => {
@@ -25,10 +27,10 @@ const Login = () => {
 		try {
 			const url = "http://localhost:8080/api/auth";
 			const { data: res } = await axios.post(url, {
-                email: data.email,
-                password: data.password,
-                recaptchaToken // Send this to backend
-            });
+				email: data.email,
+				password: data.password,
+				recaptchaToken // Send this to backend
+			});
 			console.log(res);
 			localStorage.setItem("token", res.data);
 			window.location = "/";
@@ -42,55 +44,76 @@ const Login = () => {
 				setError(error.response.data.message);
 			}
 		}
-		finally
-		{
+		finally {
 			recaptchaRef.current.reset();
 			setRecaptchaToken(null);
 		}
 	};
 
 	return (
-		<div className={styles.login_container}>
-			<div className={styles.login_form_container}>
-				<div className={styles.left}>
-					<form className={styles.form_container} onSubmit={handleSubmit}>
-						<h1>Login to Your Account</h1>
-						<input
-							type="email"
-							placeholder="Email"
-							name="email"
-							onChange={handleChange}
-							value={data.email}
-							required
-							className={styles.input}
-						/>
-						<input
-							type="password"
-							placeholder="Password"
-							name="password"
-							onChange={handleChange}
-							value={data.password}
-							required
-							className={styles.input}
-						/>
+		<div className={styles.container}>
+			<div className={styles.leftPane}>
+				<form className={styles.form_container} onSubmit={handleSubmit}>
+					<div className={styles.header}>
+						<div className={styles.imageCropper}>
+							<img src="/welcome.png" alt="illustration" className={styles.welcome} />
+						</div>
+						<h1 className={styles.title}>Welcome back</h1>
+						<p className={styles.subtitle}>Sign in to access your account</p>
+					</div>
+					<div className={styles.inputGroup}>
+						<label className={styles.label}>Email:</label>
+						<div className={styles.inputWrapper}>
+							<EmailIcon className={styles.svgIcon} />
+							<input
+								type="email"
+								name="email"
+								placeholder="email.iiit.ac.in"
+								value={data.email}
+								onChange={handleChange}
+								required
+								className={styles.input}
+							/>
+						</div>
+					</div>
+
+					<div className={styles.inputGroup}>
+						<label className={styles.label}>Password:</label>
+						<div className={styles.inputWrapper}>
+							<LockIcon className={styles.svgIcon} />
+							<input
+								type="password"
+								name="password"
+								placeholder="Enter your password"
+								value={data.password}
+								onChange={handleChange}
+								required
+								className={styles.input}
+							/>
+						</div>
+					</div>
+
+					{error && <div className={styles.error}>{error}</div>}
+					<div className={styles.recaptchaWrapper}>
 						<ReCAPTCHA
 							sitekey="6LdOfMoqAAAAABjeTwkZSrQaBMd5h2EFkX2juPvq"
 							onChange={handleRecaptchaChange}
 							ref={recaptchaRef}
 						/>
-						{error && <div className={styles.error_msg}>{error}</div>}
-						<button className={styles.green_btn}>
-							SIGN IN
-						</button>
-					</form>
-				</div>
-				<div className={styles.right}>
-					<h3>New Here ?</h3>
-					<Link to="/signup">
-						<button className={styles.white_btn}>
-							SIGN UP
-						</button>
-					</Link>
+					</div>
+
+					<button type="submit" className={styles.login_btn}>
+						Login
+					</button>
+
+					<p className={styles.signup}>
+						Don't have an account? <a href="/signup">Sign up</a>
+					</p>
+				</form>
+			</div>
+			<div className={styles.rightPane}>
+				<div className={styles.archBox}>
+					<img src="/login.png" alt="illustration" className={styles.illustration} />
 				</div>
 			</div>
 		</div>
