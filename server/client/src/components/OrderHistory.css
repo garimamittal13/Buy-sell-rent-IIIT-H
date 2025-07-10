@@ -1,0 +1,138 @@
+/* === General === */
+.orderhistory {
+    text-align: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    padding: 30px 0;
+    background-color: #fff6f0;
+    margin-top: 0;
+}
+.hi{
+    background-color: #fff6f0;
+}
+
+/* === Tabs === */
+.tab-container {
+    background-color: #fff6f0;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 30px;
+    padding: 15px 0;
+}
+
+.container{
+    background-color: #fff6f0
+}
+.tab-btn {
+    padding: 12px 30px;
+    border: none;
+    border-radius: 20px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: #222;
+    color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+.tab-btn:hover {
+    background-color: #000;
+    transform: scale(1.05);
+}
+
+.tab-btn.active {
+    background-color: #000;
+    transform: scale(1.12);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* === Section Titles === */
+.pending-title,
+.bought-title,
+.sold-title {
+    color: #000;
+    font-size: 26px;
+    font-weight: bold;
+    margin: 20px 0;
+}
+
+/* === Orders Grid === */
+.pending-orders-container,
+.bought-orders-container,
+.sold-orders-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 20px 0;
+    min-height: 0;
+}
+
+/* === Order Cards === */
+.pending-order-card,
+.bought-order-card,
+.sold-order-card {
+    background: #f5cba7;
+    color: rgb(0, 0, 0);
+    padding: 20px;
+    border-radius: 14px;
+    width: 340px;
+    transition: transform 0.3s ease;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.pending-order-card:hover,
+.bought-order-card:hover,
+.sold-order-card:hover {
+    transform: translateY(-5px);
+}
+
+/* === OTP Section === */
+.otp-text {
+    font-weight: bold;
+    font-size: 16px;
+    color: #000000;
+    margin-top: 10px;
+}
+
+.otp-btn {
+    margin-top: 12px;
+    padding: 10px 22px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 24px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.otp-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.3);
+}
+
+.otp-btn:active {
+    transform: scale(0.95);
+    box-shadow: none;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+    .tab-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .tab-btn {
+        width: 80%;
+        margin: 0 auto;
+    }
+
+    .pending-order-card,
+    .bought-order-card,
+    .sold-order-card {
+        width: 90%;
+    }
+}

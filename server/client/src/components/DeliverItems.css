@@ -1,0 +1,109 @@
+/* Container Styling */
+.deliver-container {
+    background-color: #fff6f0;
+    padding: 30px 20px;
+    min-height: 100vh;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    align-items: center;
+}
+
+/* Title Styling */
+.deliver-title {
+    color: #000;
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+/* No Orders or Success Message */
+.no-orders {
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #000;
+    margin-top: 20px;
+}
+
+.message{
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: 1.6rem;
+    font-weight: bold;
+    color: #000;
+    margin-top: 20px;
+    margin-left: 160px;
+}
+
+/* Orders Wrapper */
+.orders-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Order Card */
+.order-card {
+    background-color: #f5cba7;
+    color: #000;
+    padding: 20px 25px;
+    border-radius: 14px;
+    width: 380px;
+    transition: transform 0.3s ease;
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.order-card:hover {
+    transform: translateY(-4px);
+}
+
+/* Order Info */
+.order-title {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.order-details {
+    margin-bottom: 8px;
+}
+
+/* OTP Input Section */
+.otp-section {
+    margin-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+/* OTP Input */
+.otp-input {
+    flex-grow: 1;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+/* Complete Transaction Button */
+.complete-btn {
+    background-color: #000;
+    color: white;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.complete-btn:hover {
+    background-color: #222;
+    transform: scale(1.05);
+}
